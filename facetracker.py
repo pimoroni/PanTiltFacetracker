@@ -31,8 +31,8 @@ video_capture.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT, FRAME_H)
 time.sleep(2)
 
 # Turn the camera to the default position
-turn(PAN,cam_pan)
-turn(TILT,cam_tilt)
+pan(cam_pan)
+tilt(cam_tilt)
 
 while True:
     # Capture frame-by-frame
@@ -87,8 +87,8 @@ while True:
         cam_tilt = max(0,min(180,cam_tilt))
 
         # Update the servos
-        turn(PAN, cam_pan)
-        turn(TILT, cam_tilt)
+        pan(cam_pan)
+        tilt(cam_tilt)
 
         break
 
