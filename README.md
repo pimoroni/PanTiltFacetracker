@@ -14,6 +14,16 @@ You will also need to make sure your Pi is up-to-date:
     sudo apt-get upgrade
     sudo rpi-update
 
+And install OpenCV for Python:
+
+    sudo apt-get install python-opencv
+
+To run this example, you should fire up your desktop with startx,
+open up an LXTerminal window and run:
+
+    ./facetracker.py
+
+
 Note
 ----
 
@@ -24,7 +34,6 @@ Adafruit Library Files
 ----------------------
 
 The following files come from https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code and fall under the below copyright conditions.
-
 
 * Adafruit_I2C.py
 * Adafruit_PWM_Servo_Driver.py
