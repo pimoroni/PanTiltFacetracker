@@ -10,13 +10,11 @@ You will need:
 
 You will also need to make sure your Pi is up-to-date:
 
-    sudo apt-get update
-    sudo apt-get upgrade
-    sudo rpi-update
+    curl -sS get.pimoroni.com/uptodate | bash
 
-And install OpenCV for Python:
+And install OpenCV and SMBus for Python:
 
-    sudo apt-get install python-opencv
+    sudo apt-get install python-smbus python-opencv
 
 To run this example, you should fire up your desktop with startx,
 open up an LXTerminal window and run:
@@ -33,7 +31,13 @@ You can use an Arduino to drive the servos, or drive them directly off your Pi, 
 Adafruit Library Files
 ----------------------
 
-The following files come from https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code and fall under the below copyright conditions.
+You should install the following Adafruit Python library:
+
+    sudo pip install adafruit-gpio
+    sudo pip install adafruit-pca9685
+
+
+The following files, retained in the repository for historical reasons, come from https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code and fall under the below copyright conditions.
 
 * Adafruit_I2C.py
 * Adafruit_PWM_Servo_Driver.py
