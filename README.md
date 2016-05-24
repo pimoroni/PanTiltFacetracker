@@ -14,7 +14,7 @@ You will also need to make sure your Pi is up-to-date:
 
 And install OpenCV and SMBus for Python:
 
-    sudo apt-get install python-smbus python-opencv
+    sudo apt-get install python-smbus python-opencv opencv-data
 
 To run this example, you should fire up your desktop with startx,
 open up an LXTerminal window and run:
