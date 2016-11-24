@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 
 import cv2, sys, time, os
-from pantilt import *
+from pantilthat import *
 
 # Load the BCM V4l2 driver for /dev/video0
 os.system('sudo modprobe bcm2835-v4l2')
 # Set the framerate ( not sure this does anything! )
-os.system('v4l2-ctl -p 4')
+os.system('v4l2-ctl -p 8')
 
 # Frame Size. Smaller is faster, but less accurate.
 # Wide and short is better, since moving your head
@@ -15,9 +15,9 @@ FRAME_W = 180
 FRAME_H = 100
 
 # Default Pan/Tilt for the camera in degrees.
-# Camera range is from 0 to 180
-cam_pan = 70
-cam_tilt = 70
+# Camera range is from -90 to 90
+cam_pan = 90
+cam_tilt = 60
 
 # Set up the CascadeClassifier for face tracking
 #cascPath = 'haarcascade_frontalface_default.xml' # sys.argv[1]
@@ -31,8 +31,16 @@ video_capture.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT, FRAME_H)
 time.sleep(2)
 
 # Turn the camera to the default position
-pan(cam_pan)
-tilt(cam_tilt)
+pan(cam_pan-90)
+tilt(cam_tilt-90)
+light_mode(WS2812)
+
+def lights(r,g,b,w):
+    for x in range(18):
+        set_pixel_rgbw(x,r if x in [3,4] else 0,g if x in [3,4] else 0,b,w if x in [0,1,6,7] else 0)
+    show()
+
+lights(0,0,0,50)
 
 while True:
     # Capture frame-by-frame
@@ -58,6 +66,8 @@ while True:
         flags=cv2.cv.CV_HAAR_SCALE_IMAGE | cv2.cv.CV_HAAR_FIND_BIGGEST_OBJECT | cv2.cv.CV_HAAR_DO_ROUGH_SEARCH
     )'''
     
+    lights(50 if len(faces) == 0 else 0, 50 if len(faces) > 0 else 0,0,50)
+
     for (x, y, w, h) in faces:
         # Draw a green rectangle around the face
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
@@ -82,13 +92,15 @@ while True:
         cam_pan  += -turn_x
         cam_tilt += turn_y
 
+        print(cam_pan-90, cam_tilt-90)
+
         # Clamp Pan/Tilt to 0 to 180 degrees
         cam_pan = max(0,min(180,cam_pan))
         cam_tilt = max(0,min(180,cam_tilt))
 
         # Update the servos
-        pan(cam_pan)
-        tilt(cam_tilt)
+        pan(int(cam_pan-90))
+        tilt(int(cam_tilt-90))
 
         break
 
