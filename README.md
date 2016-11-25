@@ -4,7 +4,10 @@ Mini Pan-Tilt Face Tracker
 You will need:
 * Pimoroni Pan/Tilt HAT Kit
 * A Pi Camera
-* A long ribbon cable
+
+The 15cm ribbon cable supplied with the Pi Camera should be long enough if you're mounting the Pan/Tilt HAT on the Pi.
+
+If you're using a Black HAT Hack3r you may need 30cm.
 
 You will also need to make sure your Pi is up-to-date:
 
