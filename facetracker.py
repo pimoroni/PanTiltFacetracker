@@ -45,7 +45,9 @@ lights(0,0,0,50)
 while True:
     # Capture frame-by-frame
     ret, frame = video_capture.read()
-
+    # This line lets you mount the camera the "right" way up, with neopixels above
+    frame = cv2.flip(frame, -1)
+    
     if ret == False:
       print("Error getting image")
       continue
