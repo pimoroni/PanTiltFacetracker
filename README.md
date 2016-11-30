@@ -20,7 +20,7 @@ And install OpenCV and SMBus for Python:
 To run this example, you should fire up your desktop with startx,
 open up an LXTerminal window and run:
 
-    ./facetracker.py
+    ./facetracker_lbp.py
 
 
 Note
