@@ -7,6 +7,12 @@ You will need:
 
 The 15cm ribbon cable supplied with the Pi Camera should be long enough if you're mounting the Pan/Tilt HAT on the Pi. If you're using a Black HAT Hack3r you may need 30cm.
 
+To enable the camera using raspi-config non-interactive mode:
+
+```bash
+sudo raspi-config nonint do_camera 0
+```
+
 You will also need to make sure your Pi is up-to-date and install OpenCV for Python:
 
 ```bash
