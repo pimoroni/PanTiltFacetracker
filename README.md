@@ -5,23 +5,25 @@ You will need:
 * Pimoroni Pan/Tilt HAT Kit
 * A Pi Camera
 
-The 15cm ribbon cable supplied with the Pi Camera should be long enough if you're mounting the Pan/Tilt HAT on the Pi.
+The 15cm ribbon cable supplied with the Pi Camera should be long enough if you're mounting the Pan/Tilt HAT on the Pi. If you're using a Black HAT Hack3r you may need 30cm.
 
-If you're using a Black HAT Hack3r you may need 30cm.
+You will also need to make sure your Pi is up-to-date and install OpenCV for Python:
 
-You will also need to make sure your Pi is up-to-date:
+```bash
+sudo apt-get install python-opencv python3-opencv opencv-data
+```
 
-    curl -sS get.pimoroni.com/uptodate | bash
+To install the pantilthat library, run:
 
-And install OpenCV and SMBus for Python:
+```bash
+curl https://get.pimoroni.com/pantilthat | bash
+```
 
-    sudo apt-get install python-smbus python-opencv opencv-data
+Finally, to run this example, run:
 
-To run this example, you should fire up your desktop with startx,
-open up an LXTerminal window and run:
-
+```bash
     ./facetracker_lbp.py
-
+```
 
 Note
 ----
