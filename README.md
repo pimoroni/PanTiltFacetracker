@@ -28,7 +28,7 @@ curl https://get.pimoroni.com/pantilthat | bash
 Finally, to run this example, run:
 
 ```bash
-    ./facetracker_lbp.py
+./facetracker_lbp.py
 ```
 
 Note
